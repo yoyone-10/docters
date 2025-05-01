@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:easy_localization/easy_localization.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,24 +23,17 @@ class MyApp extends StatelessWidget {
         ),
         // textDirection: TextDirection.rtl, // اتجاه النص من اليمين لليسار
       ),
-      localizationsDelegates: [
+      //
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
-        Locale('en', 'US'), // يمكنك إضافة اللغات المطلوبة هنا
-        Locale('ar', 'AE'),
+      supportedLocales: const [
+        Locale('ar', 'SA'), // اللغة العربية
+        Locale('en', 'US'), // اللغة الإنجليزية
       ],
 
-      // localizationsDelegates: [
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate,
-      // ],
-      // supportedLocales: [
-      //   Locale('ar', 'SA'), // اللغة العربية
-      //   Locale('en', 'US'), // اللغة الإنجليزية
-      // ],
       home: const HomeScreen(),
     );
   }
@@ -98,7 +92,8 @@ class HomeScreen extends StatelessWidget {
               Icons.calendar_today,
               () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const AppointmentScreen()),
               ),
             ),
           ],
